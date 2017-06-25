@@ -1,0 +1,101 @@
+// Browser Prefixes - Which CSS prefixes should be used?
+@webkit: true;
+@moz: false;
+@ms: false;
+@o: false;
+
+// Durations
+@fastDuration: .1s;
+@mediumDuration: .3s;
+@slowDuration: .5s;
+
+// Arrows options
+@spaceBetweenTextAndArrows: 2.2em;
+
+/* Bounce In */
+.bounce-in() {
+  .hacks();
+  .prefixed(transition-duration, @slowDuration);
+
+  &:hover,
+  &:focus,
+  &:active {
+    .prefixed(transform, scale(1.2));
+    .prefixed(transition-timing-function, cubic-bezier(.47,2.02,.31,-0.36));
+  }
+}
+
+.hardwareAccel() {
+  // Improve performance on mobile/tablet devices
+  // Perspective reduces blurryness of text in Chrome
+  .prefixed(transform, perspective(1px) translateZ(0));
+}
+
+.improveAntiAlias() {
+  // Improve aliasing on mobile/tablet devices
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.forceBlockLevel() {
+  // Transforms need to be block-level to work
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hacks() {
+  .forceBlockLevel();
+  .hardwareAccel();
+  .improveAntiAlias();
+}
+
+// prefix declarations
+.prefixed(@property, @value) {
+  & when (@webkit = true) {
+    -webkit-@{property}: @value;
+  }
+
+  & when (@moz = true) {
+    -moz-@{property}: @value;
+  }
+
+  & when (@ms = true) {
+    -ms-@{property}: @value;
+  }
+
+  & when (@o = true) {
+    -o-@{property}: @value;
+  }
+
+    @{property}: @value;
+}
+
+// prefix keyframes
+.keyframes(@name; @content) {
+  & when (@webkit = true) {
+    @-webkit-keyframes @name {
+      @content();
+    }
+  }
+
+  & when (@moz = true) {
+    @-moz-keyframes @name {
+      @content();
+    }
+  }
+
+  & when (@ms = true) {
+    @-ms-keyframes @name {
+      @content();
+    }
+  }
+
+  & when (@o = true) {
+    @-o-keyframes @name {
+      @content();
+    }
+  }
+
+  @keyframes @name {
+    @content();
+  }
+}

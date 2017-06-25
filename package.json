@@ -1,0 +1,30 @@
+{
+  "name": "siteapp",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Labobobo/siteapp.git"
+  },
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-animate": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angular-sanitize": "^1.6.4",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angularfire": "^2.3.0",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.4",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-less": "^3.3.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "^1.2.2",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "less": "^2.7.2"
+  }
+}
